@@ -15,6 +15,7 @@ data = np.genfromtxt('s_and_p.csv', delimiter=',')
 daily_pr = data[3:,1:]
 
 ret_d = np.diff(np.log(daily_pr))
+ret_d[np.isnan(ret_d)] = 0 #Nan values set to 0. it will correspond to carry over when cumulating
 ret_w = np.sum(np.reshape(ret_d, (int(ret_d.shape[0]/5),5,ret_d.shape[1])), axis=1)
 
 ret_w_sliding = np.zeros([ret_w.shape[0]-51,52,ret_w.shape[1]])
@@ -46,7 +47,6 @@ Y_w = ret_w[55:,:]
 Y_median = np.median(Y_w,1)
 Y_w[Y_w>=np.tile(Y_median[:,np.newaxis],347)] = 1
 Y_w[Y_w<np.tile(Y_median[:,np.newaxis],347)] = 0
-Y_w[np.isnan(Y_w)] = 0
  
 X_w = w_Zscore
 X_d = d_Zscore
