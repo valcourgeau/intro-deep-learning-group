@@ -9,7 +9,7 @@ import os
 import numpy as np
 from matplotlib import pyplot as plt
 
-path = 'C:\\Users/PierFrancesco/Documents/Python/DeepLearning/ProjectWork'
+path = 'C:\\Users/PierFrancesco/Documents/Python/UCL/Intro to DeepLearning/Projectwork'
 os.chdir(path)
 data = np.genfromtxt('s_and_p.csv', delimiter=',')
 daily_pr = data[3:,1:]
@@ -42,7 +42,12 @@ d_Zscore = (cumRet_d - np.tile(mean_d[:,:,np.newaxis],(1,1,cumRet_d.shape[2]))) 
 w_Zscore = cumRet_w - np.tile(mean_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2])) / np.tile(std_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2]))
 
 
-Y_w = ret_w[55:,:] 
+Y_w = ret_w[55:,:]
+Y_median = np.median(Y_w,1)
+Y_w[Y_w>=np.tile(Y_median[:,np.newaxis],347)] = 1
+Y_w[Y_w<np.tile(Y_median[:,np.newaxis],347)] = 0
+Y_w[np.isnan(Y_w)] = 0
+ 
 X_w = w_Zscore
-X_d = d_Zscore 
+X_d = d_Zscore
 
