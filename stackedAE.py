@@ -88,7 +88,7 @@ x_train = normalise_dataset(x_train)
 
 # Following the paper's instructions
 BATCH_SIZE = 60
-N_EPOCHS = 500
+N_EPOCHS = 5000
 ACTIVATION = tf.nn.sigmoid
 LEARNING_RATE = 0.05
 
@@ -153,4 +153,4 @@ def save_as_csv(data_array, file_name="data"):
 output4 = normalise_dataset(output4)
 
 # Save output in .csv file
-save_as_csv(output4, "sae_output")
+save_as_csv(output4, "sae_output_5000")

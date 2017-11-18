@@ -43,21 +43,20 @@ y_dataset = np.array(y_dataset["Close_Price"])
 X = prepare_data(x_dataset, time_steps=5, val_size=0.1, test_size=0.1)
 y = prepare_data(y_dataset, time_steps=5, val_size=0.1, test_size=0.1, labels=True)
 
-print(x_dataset[1:3,:])
+
 print(len(X['train']))
-print(len(y['train']))
+print(len(y['train'][1:]))
 
 def experiment_fn(output_dir):
     # run experiment
     return tf.contrib.learn.Experiment(
-        tf.estimator.Estimator(model_fn=simple_rnn, params=
-                               {},
+        tf.estimator.Estimator(model_fn=simple_rnn,
                                model_dir=output_dir),
-        features=np.X['train'],
-        targets=y['train'],
+        features=X['train'],
+        labels=y['train'][1:],
         eval_metrics={
             'rmse': tf.contrib.learn.MetricSpec(
-                metric_fn=tf.contrib.metrics.streaming_root_mean_squared_error
+                metric_fn=tf.contrib.metrics.streaming_accuracy
             )
         }
     )
@@ -65,7 +64,7 @@ def experiment_fn(output_dir):
 LSTM_SIZE = 5  # number of hidden layers in each of the LSTM cells
 
 # create the inference model
-def simple_rnn(features, params, mode):
+def simple_rnn(features, labels, mode):
     N_OUTPUTS = 1
     N_INPUTS = len(features) - LSTM_SIZE
 
@@ -83,9 +82,9 @@ def simple_rnn(features, params, mode):
     predictions = tf.matmul(outputs, weight) + bias
         
     # 2. Define the loss function for training/evaluation
-    loss = tf.losses.mean_squared_error(targets, predictions)
+    loss = tf.losses.mean_squared_error(labels, predictions)
     eval_metric_ops = {
-        "rmse": tf.metrics.root_mean_squared_error(targets, predictions)
+        "rmse": tf.metrics.root_mean_squared_error(labels, predictions)
     }
 
     # 3. Define the training operation/optimizer
