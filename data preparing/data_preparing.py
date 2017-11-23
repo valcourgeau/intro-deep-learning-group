@@ -40,7 +40,7 @@ std_d = np.std(cumRet_d,2)
 std_w = np.std(cumRet_w,2)
 
 d_Zscore = (cumRet_d - np.tile(mean_d[:,:,np.newaxis],(1,1,cumRet_d.shape[2]))) / np.tile(std_d[:,:,np.newaxis],(1,1,cumRet_d.shape[2]))
-w_Zscore = cumRet_w - np.tile(mean_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2])) / np.tile(std_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2]))
+w_Zscore = (cumRet_w - np.tile(mean_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2]))) / np.tile(std_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2]))
 
 
 Y_w = ret_w[55:,:]
@@ -50,4 +50,10 @@ Y_w[Y_w<np.tile(Y_median[:,np.newaxis],347)] = 0
  
 X_w = w_Zscore
 X_d = d_Zscore
+
+X_train = X_w[0:400,:,:]
+X_valid = X_w[401:,:,:]
+
+y_train0 = Y_w[0:400,:]
+y_valid0 = Y_w[401:,:]
 
