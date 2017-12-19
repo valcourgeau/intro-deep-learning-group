@@ -38,6 +38,9 @@ short_strategy = np.sum(-ret_w*port_short,1)
 
 
 ''' Plot Results '''
+
+n_dates = 20
+
 f, (ax1) = plt.subplots(1, 1, sharey=False)
 ax1.plot(np.cumsum(long_strategy[50:])+np.cumsum(short_strategy[50:]), label='Strategy')
 ax1.plot(np.cumsum(index_ret_w[50:]), label='S&P 500 Index')
@@ -45,3 +48,6 @@ ax1.grid(linestyle='--')
 ax1.set_ylabel('Return', color='b')
 ax1.set_xlabel('Time', color='b')
 ax1.legend()
+ax1.get_xaxis().set_ticks(np.linspace(1,len(dates)-1,n_dates).astype(int))
+ax1.get_xaxis().set_ticklabels(dates[np.linspace(1,len(dates)-1,n_dates).astype(int)])
+f.autofmt_xdate(bottom=0.2, rotation=40, ha='right')
