@@ -12,11 +12,14 @@ from matplotlib import pyplot as plt
 path = 'C:\\Users/PierFrancesco/Documents/Python/UCL/Intro to DeepLearning/Projectwork'
 os.chdir(path)
 data = np.genfromtxt('s_and_p.csv', delimiter=',')
-daily_pr = data[3:,1:]
+daily_pr = data[1:,1:]
 
-ret_d = np.diff(np.log(daily_pr))
+N_stock = daily_pr.shape[1]
+
+
+ret_d = np.diff(np.log(daily_pr),axis=0)
 ret_d[np.isnan(ret_d)] = 0 #Nan values set to 0. it will correspond to carry over when cumulating
-ret_w = np.sum(np.reshape(ret_d, (int(ret_d.shape[0]/5),5,ret_d.shape[1])), axis=1)
+ret_w = np.sum(np.reshape(ret_d, (int(ret_d.shape[0]/5), 5, N_stock)), axis=1)
 
 ret_w_sliding = np.zeros([ret_w.shape[0]-51,52,ret_w.shape[1]])
 ret_d_sliding = np.zeros([ret_d.shape[0]-19,20,ret_d.shape[1]])
@@ -45,15 +48,15 @@ w_Zscore = (cumRet_w - np.tile(mean_w[:,:,np.newaxis],(1,1,cumRet_w.shape[2]))) 
 
 Y_w = ret_w[55:,:]
 Y_median = np.median(Y_w,1)
-Y_w[Y_w>=np.tile(Y_median[:,np.newaxis],347)] = 1
-Y_w[Y_w<np.tile(Y_median[:,np.newaxis],347)] = 0
+Y_w[Y_w>=np.tile(Y_median[:,np.newaxis],N_stock)] = 1
+Y_w[Y_w<np.tile(Y_median[:,np.newaxis],N_stock)] = 0
  
 X_w = w_Zscore
 X_d = d_Zscore
 
-X_train = X_w[0:400,:,:]
-X_valid = X_w[401:,:,:]
+X_train = X_w[0:750,:,:]
+X_valid = X_w[751:,:,:]
 
-y_train0 = Y_w[0:400,:]
-y_valid0 = Y_w[401:,:]
+y_train0 = Y_w[0:750,:]
+y_valid0 = Y_w[751:,:]
 
