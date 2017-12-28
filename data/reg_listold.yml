@@ -7,7 +7,7 @@ sp500_wt_nosae_all_features:
  - cheat: False
  - cheat_fac: 0.0
  - normalise: True
- - wavelet: False
+ - wavelet: True
  - auto: False
  - lookback: 4
  - dropout: 0.0
@@ -16,7 +16,25 @@ sp500_wt_nosae_all_features:
  - BATCH_SIZE: 60
  - LEARNING_RATE: 0.005
  - BATCH_SIZE_LSTM: 50
- - EPOCHS: 1000
- - LSTM_neurons: [50, 20,20,20]
+ - EPOCHS: 2
+ - LSTM_neurons: [50, 20]
+ - MLP_neurons: [20, 10]
+sp500_wt_sae_all_features:
+ - input_file: sp500_index_data.csv
+ - features: ['Close Price', 'Volume', 'MACD', 'BOLL']
+ - cheat: True 
+ - cheat_fac: 0.0
+ - normalise: True
+ - wavelet: False
+ - auto: False
+ - lookback: 0
+ - dropout: 0.0
+ - N_EPOCHS: 500
+ - neurons: [20, 15, 15, 10]
+ - BATCH_SIZE: 60
+ - LEARNING_RATE: 0.005
+ - BATCH_SIZE_LSTM: 50
+ - EPOCHS: 1500
+ - LSTM_neurons: [50, 20]
  - MLP_neurons: [20, 10]
 ...
