@@ -9,7 +9,7 @@ sp500_wt_nosae_all_features:
  - normalise: True
  - wavelet: False
  - auto: False
- - lookback: 4
+ - lookback: 0
  - dropout: 0.0
  - N_EPOCHS: 1000
  - neurons: [20, 15, 15, 10]
