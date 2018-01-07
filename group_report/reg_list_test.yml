@@ -1,0 +1,342 @@
+---
+sp500_nowt_nosae_all_features_mlp:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: False
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 0
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_mlp_cheat:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: True
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 0
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_2:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: False
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 2
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_2_cheat:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: True
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 2
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_3:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: False
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 3
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_3_cheat:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: True
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 2
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_4:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: False
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 4
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_4_cheat:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: True
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 2
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_5:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: False
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 5
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+sp500_nowt_nosae_all_features_5_cheat:
+
+ - input_file: sp500_index_data.csv
+
+ - features: ['Close Price', 'Open Price', 'High Price', 'Low Price',
+ 'Volume', 
+'MACD', 'CCI', 'ATR', 'BOLL', 'EMA20', 'MA10', 'MTM6', 'MA5',
+ 'MTM12', 'ROC',
+'SMI', 'WVAD', 'US Dollar Index', 'Federal Fund Rate']
+
+ - cheat: True
+ - cheat_fac: 0.0
+
+ - normalise: True
+
+ - wavelet: False
+ - auto: False
+
+ - lookback: 5
+ - dropout: 0.0
+ - N_EPOCHS: 1200
+
+ - neurons: [20, 15, 15, 10]
+
+ - BATCH_SIZE: 60
+
+ - LEARNING_RATE: 0.002
+ - BATCH_SIZE_LSTM: 64
+
+ - EPOCHS: 1200
+
+ - LSTM_neurons: [10, 10, 10, 10]
+
+ - MLP_neurons: [20, 10]
+...
